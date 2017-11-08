@@ -1,0 +1,15 @@
+OS Files and Folders
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+.vscode/
+*.sass-cache
+.tmp/
+
+Site Files and Folders
+/db.php
