@@ -20,10 +20,18 @@
         background-color: #559cd6;
         border-top: 30px solid #2776b7;
         border-bottom: 5px solid navy;
-        height: 220px;
-        margin-bottom: 8vh;
+        margin-bottom: 20px;
         padding-top: 15px;
             
+    }
+
+    .signup-container{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 20px 0;
     }
 
     #header-text{
@@ -45,7 +53,7 @@
 
     .page-header{
 
-        font-size: 4em;
+        font-size: 3em;
         padding: 0px;
         text-align: center;
         margin-bottom: 4vh;
@@ -64,8 +72,8 @@
 
 	.form-control{
 
-		height: 60px;
-		font-size: 1.5em;
+		height: 50px;
+		font-size: 1.2em;
 	}
 
     .table{
