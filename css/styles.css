@@ -1,14 +1,17 @@
-    body{
+    html{
+        height: 100%;
+        /* background-color: linear-gradient(to bottom, lightblue,navy); */
+    }
 
+    body{
+        height: 100%;
         font-family: 'Raleway', sans-serif;
         width:100%;
-       
 
     }
 
-    html{
-
-        background-color: linear-gradient(to bottom, lightblue,navy);
+    .wrapper{
+        height: 100%;
     }
 
     .content {
@@ -108,10 +111,9 @@
         height: 80px;
         text-align: center;
         padding-top: 20px;
-        margin-top: 50px;
+        margin-top: -80px;
         font-size: 1.0em;
         border-top: 5px solid navy;
-
     }
 
     #update-btn{

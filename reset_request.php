@@ -49,8 +49,8 @@ $error = "";
 			//MAIL FUNCTION TO SHOW DATA
 			//-------------------------------------------------------------	
 
-			$to = $userEmail;
-            //$to = "eric@ericmeffley.com";
+			//$to = $userEmail;
+      $to = "eric@ericmeffley.com";
 			$headers = "From: eric@ericmeffley.com\r\n";
 			$headers .= "Cc: \r\n";
 			$headers .= "Bcc: \r\n";

@@ -1,57 +1,58 @@
 <?php ob_start(); ?>
-<?php include 'db.php';
-session_start();
-date_default_timezone_set('UTC');
+<?php 
+    include 'db.php';
+    session_start();
+    date_default_timezone_set('UTC');
 
-//SESSSION VARIABLES
-$displayName = $_SESSION['displayname'];
-$_SESSION['username'];
-$_SESSION['id'];
-$userID = $_SESSION['id'];
+    //SESSSION VARIABLES
+    $displayName = $_SESSION['displayname'];
+    $_SESSION['username'];
+    $_SESSION['id'];
+    $userID = $_SESSION['id'];
 
-$select_issues="";
-$error = "";
+    $select_issues="";
+    $error = "";
 
-$dateTime = date("g:i");
-$dateDay = date("m/d/Y");
+    $dateTime = date("g:i");
+    $dateDay = date("m/d/Y");
 
-$welcome = '<div class="alert alert-info"><span style="font-size:1.5em;">'.$displayName.'</span><a href="javascript: logout_onclick()" id="logout-btn-2">Log Out</a><span class="display-date">'.$dateDay.'</span></div>';
+    $welcome = '<div class="alert alert-info"><span style="font-size:1.5em;">'.$displayName.'</span><a href="javascript: logout_onclick()" id="logout-btn-2">Log Out</a><span class="display-date">'.$dateDay.'</span></div>';
 
-//IF NO DISPLAY NAME REDIRECT TO LOGIN PAGE
-if(!$_SESSION['displayname']){
-    
-        header("Location: index.php");
-    
-    } else {
+    //IF NO DISPLAY NAME REDIRECT TO LOGIN PAGE
+    if(!$_SESSION['displayname']){
         
-        if(isset ($_POST['submit'])){
-
-            $issueText = $_POST['textBox'];
-
-            if($issueText == "" || empty($issueText)){
-                
-                    $error = "I can't read your mind, please TYPE your thoughts. :)";
-                
-                }
+            header("Location: index.php");
+        
+        } else {
             
-            if (!$error){
-                //IF NO ERRORS INSERT THOUGHT INTO DATABASE :::::::::::::::
-                $issueComplete = 0;
+            if(isset ($_POST['submit'])){
 
-                $thought_query = $connection->prepare("INSERT INTO `issues` (user_id, complete, description)VALUES (?, ?, ?)");
-                $thought_query->bind_param("iss", $userID, $issueComplete, $issueText);
-                if($thought_query->execute()){
-                    $thought_query->close();
-                    header("Location: main.php");
+                $issueText = $_POST['textBox'];
+
+                if($issueText == "" || empty($issueText)){
                     
-                } else {
-                    die("QUERY FAILED!!");
+                        $error = "I can't read your mind, please TYPE your thoughts. :)";
+                    
+                    }
+                
+                if (!$error){
+                    //IF NO ERRORS INSERT THOUGHT INTO DATABASE :::::::::::::::
+                    $issueComplete = 0;
+
+                    $thought_query = $connection->prepare("INSERT INTO `issues` (user_id, complete, description)VALUES (?, ?, ?)");
+                    $thought_query->bind_param("iss", $userID, $issueComplete, $issueText);
+                    if($thought_query->execute()){
+                        $thought_query->close();
+                        header("Location: main.php");
+                        
+                    } else {
+                        die("QUERY FAILED!!");
+                    }
                 }
             }
-        }
 
-}            
-        ?>
+    }            
+?>
 <?php
     
 
@@ -68,9 +69,7 @@ if(!$_SESSION['displayname']){
         <link rel="stylesheet" type="text/css" href="css/styles.css?=1.15">
     </head>
     <body>
-
-
-        
+        <main class="wrapper">
 <!-- SITE HEADER  :::::::::::::::::::::::::::::::::::::::::::::::: -->
     <div class="header">
         <p id="header-text">Thought Catcher<span style="font-size:.5em">(Beta)</span></p>
@@ -138,7 +137,6 @@ if(!$_SESSION['displayname']){
                     </div>
 
                     <?php 
-
 
                     //-------UPDATE QUERY--------
                         if(isset($_POST['update'])){
@@ -263,12 +261,12 @@ if(!$_SESSION['displayname']){
     <!--<div class="row logout-btn-wrapper">
             <button type="button" id="logout-button" class="btn btn-danger" onclick="return logout_onclick()">Log Out</button>
     </div>-->
-
+    </main>
 
 <div class="footer">
     
     <div class="container footer-content">
-        <p>&copy2017 The Meffley Company L.L.C.</p>
+        <p>&copy<?php echo Date('Y'); ?> The Meffley Company L.L.C.</p>
     </div>  
 </div>
 
