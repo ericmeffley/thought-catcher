@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <?php
-    include 'db.php';
+    include 'config/db.php';
 
     if(isset($_POST['forgotPassword'])){
 

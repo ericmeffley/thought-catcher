@@ -3,7 +3,7 @@
 	ob_start();
     session_start();
     date_default_timezone_set("America/New_York");
-    include 'db.php';
+    include 'config/db.php';
 
 
     //INITIALIZE VARIABLES// 
